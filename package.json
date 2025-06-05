@@ -20,9 +20,8 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "dev": "nodemon --exec ts-node src/main.ts",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "build": "nest build"
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "dev": "nest start --watch"
   }
 }
