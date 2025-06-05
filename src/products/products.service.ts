@@ -27,7 +27,7 @@ export class ProductsService {
       data: {
         name: data.name,
         description: data.description,
-        price: data.price,
+        price: parseFloat(data.price as any),
         image: imageUrl ?? null,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -81,7 +81,6 @@ export class ProductsService {
     if (imageUrl !== undefined) { // Only update image if it was changed or set to null
         updateData.image = imageUrl;
     }
-
 
     return this.prisma.product.update({ where: { id }, data: updateData });
   }

@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { Product } from '@prisma/client';
+import { CreateProductDto } from './dto/create-product.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UseInterceptors, UploadedFile } from '@nestjs/common';
 
@@ -29,7 +30,7 @@ export class ProductsController {
   @Post()
   @UseInterceptors(FileInterceptor('image'))
   create(
-    @Body() createProductDto: Pick<Product, 'name' | 'description' | 'price'>,
+    @Body() createProductDto: CreateProductDto,
     @UploadedFile() file?: Express.Multer.File,
   ): Promise<Product> {
     return this.productsService.create(createProductDto, file);
