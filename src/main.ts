@@ -3,11 +3,14 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors(app.enableCors({
-    origin: 'http://localhost:3000',
+  app.enableCors({
+    origin: [
+      'http://localhost:3000',
+      'https://commerce-fe-six.vercel.app', 
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-  }));
+  });
   await app.listen(process.env.PORT ?? 3002);
 }
 bootstrap();
