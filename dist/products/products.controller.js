@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsController = void 0;
 const common_1 = require("@nestjs/common");
 const products_service_1 = require("./products.service");
+const create_product_dto_1 = require("./dto/create-product.dto");
 const platform_express_1 = require("@nestjs/platform-express");
 const common_2 = require("@nestjs/common");
 let ProductsController = class ProductsController {
@@ -65,7 +66,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_2.UploadedFile)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [create_product_dto_1.CreateProductDto, Object]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "create", null);
 __decorate([

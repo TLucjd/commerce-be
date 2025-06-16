@@ -6,18 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.JwtAuthGuard = void 0;
+const passport_1 = require("@nestjs/passport");
 const common_1 = require("@nestjs/common");
-const prisma_module_1 = require("./prisma/prisma.module");
-const products_module_1 = require("./products/products.module");
-const upload_module_1 = require("./upload/upload.module");
-const auth_module_1 = require("./auth/auth.module");
-let AppModule = class AppModule {
+let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, products_module_1.ProductsModule, upload_module_1.UploadModule, auth_module_1.AuthModule],
-    })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+exports.JwtAuthGuard = JwtAuthGuard;
+exports.JwtAuthGuard = JwtAuthGuard = __decorate([
+    (0, common_1.Injectable)()
+], JwtAuthGuard);
+//# sourceMappingURL=jwt.guard.js.map
